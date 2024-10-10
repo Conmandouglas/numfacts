@@ -1,0 +1,29 @@
+* {
+  background-color: #82a5f6;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'JetBrains Mono';
+  font-size: 2.5rem;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-family: 'Jetbrains Mono';
+  font-weight: 200;
+  font-size: 1.2rem;
+  margin-left: 20px;
+  margin-bottom: 25vh;
+}
+
+p {
+  margin-left: 20px;
+}
+
+label {
+  margin-left: 20px;
+}

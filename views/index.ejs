@@ -1,0 +1,18 @@
+<%- include("header.ejs") %>
+  <h1 id="title">Number Facts</h1>
+  <h2>the home to all your number needs</h2>
+
+  <!-- The form for entering the number you would like to see information about -->
+  <form id="numForm" method="post"> 
+    <label for="numInput">Enter a number:</label>
+    <input type="text" id="numInput" name="num">
+  </form>
+
+  <!-- If data exists for fact data (based on number entered above), it will show the fact box-->
+  <% if (locals.content) {%> 
+    <p><%= content %></p>
+  <%}%>
+
+  <!-- If an error exists, it will show an error box with the corresponding error message and code-->
+  <% %> 
+<%- include("footer.ejs") %>
