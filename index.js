@@ -15,3 +15,15 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+// TODO:
+// (be sure to include dates and documentation)
+// (when coding, be sure to use comments and explain the code)
+// [10/10/24 3:55pm] Set up basic HTML & CSS
+// [10/10/24 4:24pm] Set up basic express application
+// [] Set up axios & get the fact
+// [] Post the fact into the fact box
+// [] Handle errors in the error box
+// [] Make different buttons for different facts (math, trivia, date)
+// [] Finalize the styling for the website, use flexbox, grid, or anything that is necessary
+// [] Push to github repository, make public, maybe use github pages
