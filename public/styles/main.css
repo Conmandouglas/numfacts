@@ -4,11 +4,14 @@
   margin: 0;
 }
 
+body {
+  padding-left: 20px;
+}
+
 h1 {
   font-family: 'JetBrains Mono';
   font-size: 2.5rem;
   margin-top: 30px;
-  margin-left: 20px;
   margin-bottom: 8px;
 }
 
@@ -16,14 +19,69 @@ h2 {
   font-family: 'Jetbrains Mono';
   font-weight: 200;
   font-size: 1.2rem;
-  margin-left: 20px;
-  margin-bottom: 25vh;
+  color: rgb(45, 45, 45);
+
+}
+
+#fact {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 10px 5px 5px rgb(0, 0, 0);
+  width: 80%;
+  padding: 20px;
 }
 
 p {
-  margin-left: 20px;
+  font-family: 'Jetbrains Mono';
+  font-weight: 50;
 }
 
-label {
-  margin-left: 20px;
+#numInputText {
+  font-family:'Jetbrains Mono';
+  text-decoration: underline;
+}
+
+.enterBox {
+  width: 50%;
+}
+
+form {
+  margin-bottom: 60px;
+}
+
+hr {
+  border-color: rgba(76, 76, 76, 0.596);
+  border-style: solid;
+}
+
+footer > p {
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+button {
+  border: solid;
+  border-radius: 6px;
+  border-width: 2px;
+  padding: 9px 9px;
+  width: 255px;
+  background-color: #b6ffae;
+  display: block;
+}
+
+input, select {
+  padding: 4px;
+  border: solid;
+  border-width: 1.5px;
+  display: block;
+  background-color: #F6D382;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+input {
+  margin-right: 8px;
+  background-color: white;
 }

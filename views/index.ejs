@@ -1,18 +1,28 @@
 <%- include("header.ejs") %>
   <h1 id="title">Number Facts</h1>
-  <h2>the home to all your number needs</h2>
+  <h2>the home to a number of your everyday needs</h2>
 
-  <!-- The form for entering the number you would like to see information about -->
-  <form id="numForm" method="post"> 
-    <label for="numInput">Enter a number:</label>
-    <input type="text" id="numInput" name="num">
-  </form>
 
   <!-- If data exists for fact data (based on number entered above), it will show the fact box-->
-  <% if (locals.content) {%> 
-    <p><%= content %></p>
+  <% if (locals.fact) {%> 
+    <p id="fact"><%= fact %></p>
   <%}%>
 
   <!-- If an error exists, it will show an error box with the corresponding error message and code-->
-  <% %> 
+  <% if (locals.error) {%> 
+    <p><%= error %></p>
+  <%}%>
+
+  <!-- The form for entering the number you would like to see information about -->
+  <form id="numForm" method="post" action="/post-fact"> 
+    <label for="numInput" id="numInputText">Configure Fact Settings:</label> <br>
+      <input type="text" id="numInput" name="num" placeholder="Enter a number" autofocus>
+      <select name="factType" id="factTypes">
+        <option value="" disabled>Select Fact Type</option>
+        <option value="trivia">Trivia Fact</option>
+        <option value="math">Math Fact</option>
+      </select>
+    <button id="submitButton" type="submit" value="trivia">Generate Fact</button>
+  </form>
+
 <%- include("footer.ejs") %>

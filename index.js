@@ -4,13 +4,76 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-const API_URL = "http://numbersapi.com/";
+const API_URL = "http://numbersapi.com";
 
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.render("index.ejs", { content: "Fun Fact: This is a fact... waiting to be a fact." });
+/*app.get("/", (req, res) => {
+  res.render("index.ejs", { fact: "Fun Fact: This is a fact... waiting to be a fact." });
+});*/
+
+app.get("/", async (req, res) => {
+  try {
+    const result = await axios.get(API_URL + "/random"); // not an array no need to stringify
+    res.render("index.ejs", { 
+      fact: result.data
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500);
+    res.render("index.ejs", { 
+      error: error.message
+    });
+  }
 });
+
+app.post("/post-fact", async (req, res) => {
+  try {
+    const factType = req.body.factType;
+    const numb = req.body.num;
+    console.log(factType);
+    console.log(numb);
+
+    if (factType === "trivia") {
+      const result = await axios.get(API_URL + "/" + numb);
+      res.render("index.ejs", {
+        fact: result.data
+      });
+    } else if (factType === "math") {
+      const result = await axios.get(API_URL + "/" + numb + "/math")
+      res.render("index.ejs", {
+        fact: result.data
+      });
+    } else {
+      res.status(400).send("Invalid fact type");
+    }
+  } catch (error) {
+    console.log(error.message);
+    res.status(500);
+    res.render("index.ejs", { 
+      error: error.message
+    });
+  }
+});
+
+/*app.post("/post-datefact", async (req, res) => {
+  try {
+    const numb = req.body.num;
+    console.log(numb);
+    const result = await axios.get(API_URL + "/" + numb + "/d");
+    res.render("index.ejs", { 
+      fact: result.data
+    });
+    console.log(result.data);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500);
+    res.render("index.ejs", { 
+      error: error.message
+    });
+  }
+});*/
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
